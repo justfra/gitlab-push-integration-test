@@ -30,7 +30,7 @@ public class TestProjectApplicationTests {
 
         MvcResult result = mockMvc.perform(requestBuilder).andReturn();
 
-        Assert.assertEquals("Hello " + name, result.getResponse().getContentAsString());
+        Assert.assertTrue(result.getResponse().getContentAsString().contains("Hello " + name));
     }
 
 }
