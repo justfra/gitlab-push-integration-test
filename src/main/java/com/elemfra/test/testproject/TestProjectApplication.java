@@ -20,6 +20,6 @@ class HelloWorldRestController {
 
     @RequestMapping("/hello/{name}")
     public String hello(@PathVariable(value="name") String name) {
-        return "Hello " + name;
+        return String.format("Hello %s!!", name);
     }
 }
