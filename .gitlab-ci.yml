@@ -25,7 +25,7 @@ build:
 
 commit-analysis:
     stage: build
-    script: gradle sonarqube -Dsonar.analysis.mode=issues -Dsonar.gitlab.analyse.commit=$CI_COMMIT_SHA
+    script: gradle sonarqube --stacktrace --debug -Dsonar.analysis.mode=issues -Dsonar.gitlab.analyse.commit=$CI_COMMIT_SHA
 #    only: ["/^feature\\/.*$/"]
 
 test:
