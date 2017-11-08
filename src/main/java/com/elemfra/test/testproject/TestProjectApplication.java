@@ -21,16 +21,16 @@ public class TestProjectApplication {
 @RestController
 class HelloWorldRestController {
 
-    @RequestMapping("/hello/{name}")
-    public String hello(@PathVariable(value="name") String name) {
-        return String.format("Hello %s!!", name);
-    }
-
-    private void sonarQubeIssues() {
+    private void sonarQubeFail() {
         //TODO: Testing SonarQube
         List<String> l = new ArrayList<String>();
 
         String nullString = null;
         nullString.equals("My_Sweet_String");
+    }
+
+    @RequestMapping("/hello/{name}")
+    public String hello(@PathVariable(value="name") String name) {
+        return String.format("Hello %s!!", name);
     }
 }
