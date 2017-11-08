@@ -28,7 +28,6 @@ class HelloWorldRestController {
     private String sonarQubeFail() {
         //TODO: Do something...
         List<Integer> aList = new ArrayList<Integer>();
-
         String thatsBad = null;
         thatsBad.equals("NULL...");
         return thatsBad;
