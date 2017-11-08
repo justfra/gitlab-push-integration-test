@@ -20,16 +20,17 @@ public class TestProjectApplication {
 
 @RestController
 class HelloWorldRestController {
+
+    private void sonarQubeFail() {
+        //TODO: Testing SonarQube
+        List<String> l = new ArrayList<String>();
+
+        String nullString = null;
+        nullString.equals("My_Sweet_String");
+    }
+
     @RequestMapping("/hello/{name}")
     public String hello(@PathVariable(value="name") String name) {
         return String.format("Hello %s!!", name);
-    }
-
-    private String sonarQubeFail() {
-        //TODO: Do something...
-        List<Integer> aList = new ArrayList<Integer>();
-        String thatsBad = null;
-        thatsBad.equals("NULL...");
-        return thatsBad;
     }
 }
