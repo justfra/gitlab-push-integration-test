@@ -21,6 +21,7 @@ public class TestProjectApplication {
 @RestController
 class HelloWorldRestController {
 
+/*
     private void sonarQubeFail() {
         //TODO: Testing SonarQube
         List<String> l = new ArrayList<String>();
@@ -30,6 +31,21 @@ class HelloWorldRestController {
 
         Object o = null;
         o.equals(nullString);
+    }
+*/
+
+    private void testCode() {
+        if (true) {
+            if (!false) {
+                if (true) {
+                    if (!false) {
+                        if (true) {
+                            System.out.println(".......");
+                        }
+                    }
+                }
+            }
+        }
     }
 
     @RequestMapping("/hello/{name}")
