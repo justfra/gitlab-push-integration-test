@@ -27,6 +27,9 @@ class HelloWorldRestController {
 
         String nullString = null;
         nullString.equals("My_Sweet_String");
+
+        Object o = null;
+        o.equals(nullString);
     }
 
     @RequestMapping("/hello/{name}")
