@@ -26,7 +26,8 @@ build:
 code-quality:
     stage: build
 #    script: gradle sonarqube --stacktrace --debug -Dsonar.analysis.mode=issues -Dsonar.gitlab.project_id=$CI_PROJECT_PATH -Dsonar.gitlab.commit_sha=$CI_COMMIT_SHA -Dsonar.gitlab.ref_name=$CI_COMMIT_REF_NAME
-    script: gradle sonarqube --stacktrace -Dsonar.gitlab.project_id=$CI_PROJECT_PATH -Dsonar.gitlab.commit_sha=$CI_COMMIT_SHA -Dsonar.gitlab.ref_name=$CI_COMMIT_REF_NAME -Dsonar.analysis.mode=issues
+#    script: gradle sonarqube --stacktrace -Dsonar.gitlab.project_id=$CI_PROJECT_PATH -Dsonar.gitlab.commit_sha=$CI_COMMIT_SHA -Dsonar.gitlab.ref_name=$CI_COMMIT_REF_NAME -Dsonar.analysis.mode=issues
+    script: gradle sonarqube --stacktrace -Dsonar.analysis.projectId=$CI_PROJECT_PATH -Dsonar.analysis.commitHash==$CI_COMMIT_SHA -Dsonar.analysis.refName=$CI_COMMIT_REF_NAME
 #    script: gradle sonarqube --stacktrace -Dsonar.verbose=true
 #    only: ["/^feature\\/.*$/"]
 
