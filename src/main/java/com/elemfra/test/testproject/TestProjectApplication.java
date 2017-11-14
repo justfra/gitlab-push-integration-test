@@ -24,15 +24,4 @@ class HelloWorldRestController {
     public String hello(@PathVariable(value="name") String name) {
         return String.format("Hello %s!!", name);
     }
-
-    private void badMethod() {
-        if (true) {
-            if (!false) {
-                while (true) {
-                    //Very bad..
-                    System.out.println("Should " + "be " + "using " + "a " + " StringBuilder!");
-                }
-            }
-        }
-    }
 }
