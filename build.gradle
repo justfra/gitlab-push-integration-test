@@ -2,6 +2,7 @@ buildscript {
 	ext {
 		springBootVersion = '1.5.8.RELEASE'
 		gradleDockerVersion = '1.2'
+        gradleSonarQubeVersion = '2.6'
 	}
 	repositories {
 		mavenCentral()
@@ -13,7 +14,7 @@ buildscript {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 
 		//SonarQube
-		classpath("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.6")
+		classpath("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:${gradleSonarQubeVersion}")
 
 		//Docker
 		classpath("se.transmode.gradle:gradle-docker:${gradleDockerVersion}")
@@ -21,6 +22,7 @@ buildscript {
 }
 
 apply plugin: 'java'
+apply plugin: "application"
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
