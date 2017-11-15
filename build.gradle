@@ -10,7 +10,12 @@ buildscript {
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+
+		//SonarQube
 		classpath("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.6")
+
+		//Docker
+		classpath("se.transmode.gradle:gradle-docker:${gradleDockerVersion}")
 	}
 }
 
@@ -24,6 +29,11 @@ group = 'com.elemfra.test'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
+docker {
+	baseImage "frolvlad/alpine-oraclejdk8:slim"
+	maintainer 'Francesco Lemma "francesco.lemma@ericsson.com"'
+}
+
 repositories {
 	mavenCentral()
 }
@@ -31,6 +41,25 @@ repositories {
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-actuator')
     compile('org.springframework.boot:spring-boot-starter-web')
+
+	//Eclipse Paho MQTT Client
+	compile 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.0.2'
+	compile 'org.eclipse.paho:org.eclipse.paho.android.service:1.0.2'
+
     runtime('org.springframework.boot:spring-boot-devtools')
     testCompile('org.springframework.boot:spring-boot-starter-test')
+
+}
+
+
+repositories {
+	maven {
+		url "https://repo.eclipse.org/content/repositories/paho-snapshots/"
+	}
+}
+
+
+dependencies {
+	compile 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.0.2'
+	compile 'org.eclipse.paho:org.eclipse.paho.android.service:1.0.2'
 }
