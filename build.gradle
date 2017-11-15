@@ -67,3 +67,14 @@ dependencies {
 	compile 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.0.2'
 	compile 'org.eclipse.paho:org.eclipse.paho.android.service:1.0.2'
 }
+
+task buildDocker(type: Docker, dependsOn: build) {
+    applicationName = jar.baseName
+    dockerfile = file('Dockerfile')
+    doFirst {
+        copy {
+            from jar
+            into "${stageDir}/target"
+        }
+    }
+}
