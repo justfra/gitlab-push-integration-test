@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Set;
 
 @SpringBootApplication
@@ -22,25 +24,16 @@ public class TestProjectApplication {
 class HelloWorldRestController {
     @RequestMapping("/hello/{name}")
     public String hello(@PathVariable(value="name") String name) {
-        return String.format("Hello %s!!", name);
-    }
 
-    private void badMethod() {
-
-        if (true) {
-
-            if(!false) {
-
-                while (true) {
-
-                    String s = null;
-
-                    System.out.print(s.toCharArray() + "...." + "...");
-
-                }
-            }
-
+        InetAddress addr;
+        String hostname;
+        try {
+            addr = InetAddress.getLocalHost();
+            hostname = addr.getHostName();
+        } catch (UnknownHostException e) {
+            hostname = "Unknown";
         }
 
+        return String.format("Hello %s!! My thread ID is %s. Hostname is %s", name, Thread.currentThread().getId(), hostname);
     }
 }

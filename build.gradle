@@ -68,7 +68,7 @@ dependencies {
 	compile 'org.eclipse.paho:org.eclipse.paho.android.service:1.0.2'
 }
 
-task buildDocker(type: Docker, dependsOn: build) {
+/*task buildDocker(type: Docker, dependsOn: build) {
     applicationName = jar.baseName
     dockerfile = file('Dockerfile')
     doFirst {
@@ -78,3 +78,5 @@ task buildDocker(type: Docker, dependsOn: build) {
         }
     }
 }
+
+buildDocker.dependsOn build*/
